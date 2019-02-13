@@ -52,7 +52,6 @@ def generate_icon(destination_path, blocks):
                     else:
                         image[x * pixels_per_block:(x + 1) * pixels_per_block,
                         z * pixels_per_block:(z + 1) * pixels_per_block] = block_colors.get(int(blocks[x,y,z]), (100,0,0))
-                        print(x,y,z)
     img = Image.fromarray(image, 'RGB')
     img_name = destination_path + "/icon.png"
     img.save(img_name)

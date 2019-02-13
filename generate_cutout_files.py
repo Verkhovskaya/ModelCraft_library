@@ -33,7 +33,6 @@ def generate_laser_cut_files(destination_path, read_map, settings):
     lines_dict = {}
 
     read_map = read_map > 0.1
-    print(read_map)
 
     block_type = 'temp'
     for i in range(1):
@@ -49,7 +48,6 @@ def generate_laser_cut_files(destination_path, read_map, settings):
             for sheet_id in range(1, number_of_sheets_generated+1):
                 cutouts_in_sheet = list(cutouts_placed_by_sheets[sheet_id-1])
                 lines, rasters = get_lines(cutouts_in_sheet)
-                print(lines)
                 lines_with_tabs = add_tabs(lines, float(settings['tab_size'])/side_length)
                 generate_png(destination_path, sheet_id, units_x, units_z, lines_with_tabs, block_type)
                 for line in lines_with_tabs:

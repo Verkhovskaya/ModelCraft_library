@@ -1,7 +1,7 @@
 import nbt
 import numpy as np
 
-def read_map(map_path, start, end):
+def read_minecraft_map(map_path, start, end):
     metadata = nbt.nbt.NBTFile(map_path+'/level.dat', 'rb')
     version = metadata[0]['Version']['Name']
     position = metadata[0]['Player']['Pos']
