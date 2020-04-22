@@ -71,11 +71,11 @@ def read_voxel_file(filepath):
     size_x = max([x[0] for x in m])+1
     size_y = max([x[2] for x in m])+1
     size_z = max([x[1] for x in m])+1
-    voxel_map = np.zeros((size_x, size_y, size_z))
+    voxel_map = np.zeros((size_x, size_y, size_z), dtype=np.uint8)
     for x in range(size_x):
         for y in range(size_y):
             for z in range(size_z):
                 if (x,y,z) in voxels.keys():
-                    voxel_map[x,y,z] = voxels[(x,y,z)]
+                    voxel_map[x,y,z] = int(voxels[(x,y,z)])
 
     return voxel_map
